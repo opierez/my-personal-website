@@ -1,5 +1,22 @@
-const h2 = document.createElement("h2");
-h2.textContent = "This content added by Javascript";
+// Starts slideshow at first slide
+let slideIndex = 1;
+showSlides(slideIndex);
 
-document.querySelector("body").appendChild(h2);
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Slideshow function (displays one slide at a time)
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+ 
+  slides[slideIndex-1].style.display = "block";  
+}
 
